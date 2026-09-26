@@ -671,8 +671,8 @@ export function SessionView({ id }: { id: string }) {
       }
     };
     const t = window.setInterval(check, 3000);
-    navigator.mediaDevices.addEventListener("devicechange", check);
-    return () => { clearInterval(t); navigator.mediaDevices.removeEventListener("devicechange", check); };
+    navigator.mediaDevices?.addEventListener?.("devicechange", check);
+    return () => { clearInterval(t); navigator.mediaDevices?.removeEventListener?.("devicechange", check); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [live]);
 
