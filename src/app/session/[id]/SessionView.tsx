@@ -719,22 +719,22 @@ export function SessionView({ id }: { id: string }) {
         <UsageChips report={usage} onClick={() => setShowUsage((v) => !v)} />
         {popout.isOpen && (
           <div
-            className="chip chip-amber flex items-center gap-1 !py-0.5 !pl-2 !pr-1"
+            className="chip chip-amber flex items-center gap-1 py-0.5! pl-2! pr-1!"
             title={popout.pinned
               ? "Pinned: stays above every other app, on whatever screen you drag it to, and never appears in a tab or window share. ⌘/Ctrl+Shift+H hides it instantly."
               : "Floating in a normal window — other apps can cover it. Hit 📍 to pin it on top (needs Chrome/Edge 116+)."}
           >
             <span className="dot dot-pulse" /> {popout.pinned ? "pinned — on top" : "floating"}
             <button
-              className="btn btn-ghost btn-sm !px-1.5"
+              className="btn btn-ghost btn-sm px-1.5!"
               onClick={() => popout.setPinned(!popout.pinned).catch((e) => setBanner((e as Error).message))}
               title={popout.pinned ? "Unpin — let other windows cover it" : "Pin — keep it above every other app"}
             >
               {popout.pinned ? "📌" : "📍"}
             </button>
-            <button className="btn btn-ghost btn-sm !px-1.5" onClick={popout.focus} title="Bring the floating window to the front">focus</button>
-            <button className="btn btn-ghost btn-sm !px-1.5" onClick={() => popout.resize(760, 136)} title="Shrink it to a one-line bar">bar</button>
-            <button className="btn btn-ghost btn-sm !px-1.5" onClick={popout.close} title="Hide it (⌘/Ctrl+Shift+H)">✕</button>
+            <button className="btn btn-ghost btn-sm px-1.5!" onClick={popout.focus} title="Bring the floating window to the front">focus</button>
+            <button className="btn btn-ghost btn-sm px-1.5!" onClick={() => popout.resize(760, 136)} title="Shrink it to a one-line bar">bar</button>
+            <button className="btn btn-ghost btn-sm px-1.5!" onClick={popout.close} title="Hide it (⌘/Ctrl+Shift+H)">✕</button>
           </div>
         )}
         <div className="mono text-sm tabular-nums" style={{ color: live ? "var(--mint)" : "var(--muted)" }}>{fmt(elapsed)}</div>
@@ -764,7 +764,7 @@ export function SessionView({ id }: { id: string }) {
       {showUsage && (
         <div className="px-5 py-4 border-b border-line" style={{ background: "var(--panel)" }}>
           <div className="flex items-center gap-3 mb-3">
-            <span className="label !mb-0">Usage &amp; credit</span>
+            <span className="label mb-0!">Usage &amp; credit</span>
             <div className="flex-1" />
             <button className="btn btn-ghost btn-sm" onClick={() => setShowUsage(false)}>✕</button>
           </div>
@@ -805,7 +805,7 @@ export function SessionView({ id }: { id: string }) {
         {/* transcript */}
         <section className="min-h-0 flex flex-col border-r border-line">
           <div className="px-5 py-2 flex items-center gap-3 border-b border-line">
-            <span className="label !mb-0">Transcript</span>
+            <span className="label mb-0!">Transcript</span>
             <span className="mono text-[11px] text-dim">{lines.length} lines</span>
             <div className="flex-1" />
             {diarized && !ended && (
@@ -858,11 +858,11 @@ export function SessionView({ id }: { id: string }) {
         {/* answers */}
         <section className="min-h-0 flex flex-col">
           <div className="px-5 py-2 flex items-center gap-2 border-b border-line flex-wrap">
-            <span className="label !mb-0">Copilot</span>
+            <span className="label mb-0!">Copilot</span>
             <div className="flex-1" />
             {!ended && (
               <>
-                <select className="select !w-auto !py-1 !text-xs" value={autoAnswer} onChange={(e) => setAutoAnswer(e.target.value as Settings["autoAnswer"])} title="Auto-answer">
+                <select className="select w-auto! py-1! text-xs!" value={autoAnswer} onChange={(e) => setAutoAnswer(e.target.value as Settings["autoAnswer"])} title="Auto-answer">
                   <option value="questions">auto: questions</option>
                   <option value="always">auto: everything</option>
                   <option value="off">auto: off</option>
